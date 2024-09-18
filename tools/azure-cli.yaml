@@ -1,0 +1,17 @@
+tools:
+  - name: azure_cli
+    image: mcr.microsoft.com/azure-cli
+    description: "Runs Azure CLI commands - recieves the command to run as an argument"
+    alias: az
+    content: |
+      az {{.command}}
+    args:
+      - name: command
+        description: "The Azure CLI command to run (example: account). Do not add `az` at the front."
+        required: true
+    env:
+      - ARM_CLIENT_ID
+      - ARM_CLIENT_SECRET
+      - ARM_TENANT_ID
+      - ARM_SUBSCRIPTION_ID
+
