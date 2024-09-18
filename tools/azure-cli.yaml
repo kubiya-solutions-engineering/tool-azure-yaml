@@ -4,6 +4,7 @@ tools:
     description: "Runs Azure CLI commands - recieves the command to run as an argument"
     alias: az
     content: |
+      az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET --tenant $AZURE_TENANT_ID
       az {{.command}}
     args:
       - name: command
